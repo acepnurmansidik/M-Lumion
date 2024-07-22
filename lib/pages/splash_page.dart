@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 class SplashPage extends StatelessWidget {
@@ -5,6 +7,9 @@ class SplashPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Timer(const Duration(seconds: 3), () {
+      Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
+    });
     return Scaffold(
       body: Center(
         child: Container(

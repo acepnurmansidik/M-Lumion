@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lumion/pages/home_page.dart';
 import 'package:lumion/pages/splash_page.dart';
 
 void main() {
@@ -12,9 +13,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      // home: SplashPage(),
       routes: {
-        '/splash-screen': (context) => const SplashPage(),
+        '/': (context) => const SplashPage(),
+        '/home': (context) => const HomePage(),
       },
     );
   }
