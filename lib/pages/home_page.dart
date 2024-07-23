@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:lumion/theme.dart';
+import 'package:lumion/widgets/card_banner_item.dart';
 import 'package:lumion/widgets/card_item.dart';
 import 'package:lumion/widgets/carousel_item.dart';
 import 'package:lumion/widgets/indicator_item.dart';
@@ -80,31 +81,37 @@ class _HomePageState extends State<HomePage> {
                   title: "Boku No Hero Academia",
                   imgUrl: 'assets/img_scroll1.png',
                   onPressed: () {},
+                  onTapDirect: () {},
                 ),
                 CardItem(
                   title: "Boku No Hero Academia",
                   imgUrl: 'assets/img_scroll1.png',
                   onPressed: () {},
+                  onTapDirect: () {},
                 ),
                 CardItem(
                   title: "Boku No Hero Academia",
                   imgUrl: 'assets/img_scroll1.png',
                   onPressed: () {},
+                  onTapDirect: () {},
                 ),
                 CardItem(
                   title: "Boku No Hero Academia",
                   imgUrl: 'assets/img_scroll1.png',
                   onPressed: () {},
+                  onTapDirect: () {},
                 ),
                 CardItem(
                   title: "Boku No Hero Academia",
                   imgUrl: 'assets/img_scroll1.png',
                   onPressed: () {},
+                  onTapDirect: () {},
                 ),
                 CardItem(
                   title: "Boku No Hero Academia",
                   imgUrl: 'assets/img_scroll1.png',
                   onPressed: () {},
+                  onTapDirect: () {},
                 ),
               ],
             ),
@@ -209,6 +216,7 @@ class _HomePageState extends State<HomePage> {
                     margin: const EdgeInsets.only(left: 20),
                     btnCardTitle: btnTitle,
                     onPressed: () {},
+                    onTapDirect: () {},
                     heightSize: height,
                   ),
                   CardItem(
@@ -217,6 +225,7 @@ class _HomePageState extends State<HomePage> {
                     margin: const EdgeInsets.only(left: 10),
                     btnCardTitle: btnTitle,
                     onPressed: () {},
+                    onTapDirect: () {},
                     heightSize: height,
                   ),
                   CardItem(
@@ -225,6 +234,7 @@ class _HomePageState extends State<HomePage> {
                     margin: const EdgeInsets.only(left: 10),
                     btnCardTitle: btnTitle,
                     onPressed: () {},
+                    onTapDirect: () {},
                     heightSize: height,
                   ),
                   CardItem(
@@ -233,7 +243,99 @@ class _HomePageState extends State<HomePage> {
                     margin: const EdgeInsets.only(left: 10, right: 20),
                     btnCardTitle: btnTitle,
                     onPressed: () {},
+                    onTapDirect: () {},
                     heightSize: height,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    Widget cardBannerItem(
+      String title,
+      bool isMore,
+      String btnTitle,
+      Function() onTap,
+    ) {
+      return Container(
+        alignment: Alignment.centerLeft,
+        padding: EdgeInsets.only(
+          bottom: defaultMargin,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              margin: EdgeInsets.only(
+                left: defaultMargin,
+                bottom: 15,
+              ),
+              child: title != ""
+                  ? Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            title,
+                            style: whiteTextStyle.copyWith(
+                              fontSize: 24,
+                              fontWeight: semibold,
+                            ),
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: onTap,
+                          child: Container(
+                            margin: EdgeInsets.only(right: defaultMargin),
+                            child: Row(children: [
+                              isMore
+                                  ? Text(
+                                      'More',
+                                      style: whiteTextStyle.copyWith(
+                                        fontWeight: light,
+                                      ),
+                                    )
+                                  : const SizedBox(),
+                              Icon(
+                                Icons.chevron_right,
+                                color: kWhiteColor,
+                              ),
+                            ]),
+                          ),
+                        ),
+                      ],
+                    )
+                  : const SizedBox(),
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  CardBannerItem(
+                    title: "Boku No Hero Academia",
+                    imgUrl: 'assets/img_scroll1.png',
+                    margin: const EdgeInsets.only(left: 20),
+                    widthSize: 160,
+                    heightSize: 240,
+                    onPressed: () {},
+                  ),
+                  CardBannerItem(
+                    title: "Boku No Hero Academia",
+                    imgUrl: 'assets/img_scroll1.png',
+                    margin: const EdgeInsets.only(left: 10),
+                    widthSize: 160,
+                    heightSize: 240,
+                    onPressed: () {},
+                  ),
+                  CardBannerItem(
+                    title: "Boku No Hero Academia",
+                    imgUrl: 'assets/img_scroll1.png',
+                    margin: const EdgeInsets.only(left: 10, right: 20),
+                    widthSize: 160,
+                    heightSize: 240,
+                    onPressed: () {},
                   ),
                 ],
               ),
@@ -304,6 +406,7 @@ class _HomePageState extends State<HomePage> {
                     isPlay: true,
                     margin: EdgeInsets.only(left: 20),
                     onPressed: () {},
+                    onTapDirect: () {},
                   ),
                   CardItem(
                     title: "Made In Abyss",
@@ -312,6 +415,7 @@ class _HomePageState extends State<HomePage> {
                     isPlay: true,
                     margin: EdgeInsets.only(left: 10, right: 20),
                     onPressed: () {},
+                    onTapDirect: () {},
                   ),
                 ],
               ),
@@ -357,6 +461,7 @@ class _HomePageState extends State<HomePage> {
                     crossAxisCenter: true,
                     margin: EdgeInsets.only(left: 20),
                     onPressed: () {},
+                    onTapDirect: () {},
                   ),
                   CardItem(
                     title: "One Piece",
@@ -366,24 +471,7 @@ class _HomePageState extends State<HomePage> {
                     crossAxisCenter: true,
                     margin: EdgeInsets.only(left: 10),
                     onPressed: () {},
-                  ),
-                  CardItem(
-                    title: "One Piece",
-                    imgUrl: 'assets/img_scroll3.png',
-                    widthSize: 100,
-                    isCircle: true,
-                    crossAxisCenter: true,
-                    margin: EdgeInsets.only(left: 10),
-                    onPressed: () {},
-                  ),
-                  CardItem(
-                    title: "One Piece",
-                    imgUrl: 'assets/img_scroll3.png',
-                    widthSize: 100,
-                    isCircle: true,
-                    crossAxisCenter: true,
-                    margin: EdgeInsets.only(left: 10),
-                    onPressed: () {},
+                    onTapDirect: () {},
                   ),
                   CardItem(
                     title: "One Piece",
@@ -393,6 +481,7 @@ class _HomePageState extends State<HomePage> {
                     crossAxisCenter: true,
                     margin: EdgeInsets.only(left: 10, right: 20),
                     onPressed: () {},
+                    onTapDirect: () {},
                   ),
                 ],
               ),
@@ -449,7 +538,8 @@ class _HomePageState extends State<HomePage> {
           ),
           cardMovieItem('Recomended', 160, true, "", () {}),
           cardMovieItem('Comning soon', 210.0, false, "Set", () {}),
-          cardGridItem('New updated'),
+          cardBannerItem('Anime popular', true, "", () {}),
+          cardGridItem('Nxew updated'),
           cardWatchItem("Continue watching", false, () {}),
           cardCaricularItem("Popular celebrities"),
         ],
