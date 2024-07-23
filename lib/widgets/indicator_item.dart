@@ -38,7 +38,7 @@ class IndicatorItem extends StatelessWidget {
               ),
             ),
             child: Icon(
-              Icons.play_arrow,
+              Icons.play_arrow_rounded,
               color: kWhiteColor,
               size: 35,
             ),

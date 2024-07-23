@@ -1,12 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:lumion/theme.dart';
-import 'package:lumion/widgets/card_grid_item.dart';
-import 'package:lumion/widgets/card_movie_item.dart';
-import 'package:lumion/widgets/carousel_item.dart';
 import 'package:lumion/widgets/card_item.dart';
+import 'package:lumion/widgets/carousel_item.dart';
 import 'package:lumion/widgets/indicator_item.dart';
 
 class HomePage extends StatefulWidget {
@@ -43,7 +39,6 @@ class _HomePageState extends State<HomePage> {
       "totalEpisode": 1112,
     },
   ];
-  List<int> list = [0, 1, 2];
   final CarouselController _controllerCarousel = CarouselController();
   int currentIndex = 0;
   String movieImg = "";
@@ -56,6 +51,357 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    Widget cardGridItem(String title) {
+      return Container(
+        alignment: Alignment.centerLeft,
+        padding: EdgeInsets.only(
+          right: defaultMargin,
+          left: defaultMargin,
+          bottom: defaultMargin + 10,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              title,
+              style: whiteTextStyle.copyWith(
+                fontSize: 24,
+                fontWeight: semibold,
+              ),
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            Wrap(
+              spacing: 10,
+              runSpacing: 10,
+              children: [
+                CardItem(
+                  title: "Boku No Hero Academia",
+                  imgUrl: 'assets/img_scroll1.png',
+                  onPressed: () {},
+                ),
+                CardItem(
+                  title: "Boku No Hero Academia",
+                  imgUrl: 'assets/img_scroll1.png',
+                  onPressed: () {},
+                ),
+                CardItem(
+                  title: "Boku No Hero Academia",
+                  imgUrl: 'assets/img_scroll1.png',
+                  onPressed: () {},
+                ),
+                CardItem(
+                  title: "Boku No Hero Academia",
+                  imgUrl: 'assets/img_scroll1.png',
+                  onPressed: () {},
+                ),
+                CardItem(
+                  title: "Boku No Hero Academia",
+                  imgUrl: 'assets/img_scroll1.png',
+                  onPressed: () {},
+                ),
+                CardItem(
+                  title: "Boku No Hero Academia",
+                  imgUrl: 'assets/img_scroll1.png',
+                  onPressed: () {},
+                ),
+              ],
+            ),
+            Container(
+              height: 40,
+              width: double.infinity,
+              margin: const EdgeInsets.only(top: 15),
+              decoration: BoxDecoration(
+                color: kSecondaryColor,
+                borderRadius: BorderRadius.circular(5),
+              ),
+              child: TextButton(
+                onPressed: () {},
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Transform.rotate(
+                      angle: -1.5,
+                      child: Icon(
+                        Icons.chevron_left,
+                        color: kWhiteColor,
+                      ),
+                    ),
+                    Text(
+                      'More',
+                      style: whiteTextStyle.copyWith(
+                        fontWeight: light,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            )
+          ],
+        ),
+      );
+    }
+
+    Widget cardMovieItem(
+      String title,
+      double height,
+      bool isMore,
+      String btnTitle,
+      Function() onTap,
+    ) {
+      return Container(
+        alignment: Alignment.centerLeft,
+        padding: EdgeInsets.only(
+          bottom: defaultMargin,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              margin: EdgeInsets.only(
+                left: defaultMargin,
+                bottom: 15,
+              ),
+              child: title != ""
+                  ? Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            title,
+                            style: whiteTextStyle.copyWith(
+                              fontSize: 24,
+                              fontWeight: semibold,
+                            ),
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: onTap,
+                          child: Container(
+                            margin: EdgeInsets.only(right: defaultMargin),
+                            child: Row(children: [
+                              isMore
+                                  ? Text(
+                                      'More',
+                                      style: whiteTextStyle.copyWith(
+                                        fontWeight: light,
+                                      ),
+                                    )
+                                  : const SizedBox(),
+                              Icon(
+                                Icons.chevron_right,
+                                color: kWhiteColor,
+                              ),
+                            ]),
+                          ),
+                        ),
+                      ],
+                    )
+                  : const SizedBox(),
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  CardItem(
+                    title: "Boku No Hero Academia",
+                    imgUrl: 'assets/img_scroll1.png',
+                    margin: const EdgeInsets.only(left: 20),
+                    btnCardTitle: btnTitle,
+                    onPressed: () {},
+                    heightSize: height,
+                  ),
+                  CardItem(
+                    title: "Boku No Hero Academia",
+                    imgUrl: 'assets/img_scroll1.png',
+                    margin: const EdgeInsets.only(left: 10),
+                    btnCardTitle: btnTitle,
+                    onPressed: () {},
+                    heightSize: height,
+                  ),
+                  CardItem(
+                    title: "Boku No Hero Academia",
+                    imgUrl: 'assets/img_scroll1.png',
+                    margin: const EdgeInsets.only(left: 10),
+                    btnCardTitle: btnTitle,
+                    onPressed: () {},
+                    heightSize: height,
+                  ),
+                  CardItem(
+                    title: "Boku No Hero Academia",
+                    imgUrl: 'assets/img_scroll1.png',
+                    margin: const EdgeInsets.only(left: 10, right: 20),
+                    btnCardTitle: btnTitle,
+                    onPressed: () {},
+                    heightSize: height,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    Widget cardWatchItem(String title, bool isMore, Function() onTap) {
+      return Container(
+        alignment: Alignment.centerLeft,
+        padding: EdgeInsets.only(
+          bottom: defaultMargin,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              margin: EdgeInsets.only(
+                left: defaultMargin,
+                bottom: 15,
+              ),
+              child: title != ""
+                  ? Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            title,
+                            style: whiteTextStyle.copyWith(
+                              fontSize: 24,
+                              fontWeight: semibold,
+                            ),
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: onTap,
+                          child: Container(
+                            margin: EdgeInsets.only(right: defaultMargin),
+                            child: Row(children: [
+                              isMore
+                                  ? Text(
+                                      'More',
+                                      style: whiteTextStyle.copyWith(
+                                        fontWeight: light,
+                                      ),
+                                    )
+                                  : const SizedBox(),
+                              Icon(
+                                Icons.chevron_right,
+                                color: kWhiteColor,
+                              ),
+                            ]),
+                          ),
+                        ),
+                      ],
+                    )
+                  : const SizedBox(),
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  CardItem(
+                    title: "Boku No Hero Academia",
+                    imgUrl: 'assets/img_scroll1.png',
+                    widthSize: 200,
+                    isPlay: true,
+                    margin: EdgeInsets.only(left: 20),
+                    onPressed: () {},
+                  ),
+                  CardItem(
+                    title: "Made In Abyss",
+                    imgUrl: 'assets/img_scroll2.png',
+                    widthSize: 200,
+                    isPlay: true,
+                    margin: EdgeInsets.only(left: 10, right: 20),
+                    onPressed: () {},
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    Widget cardCaricularItem(String title) {
+      return Container(
+        alignment: Alignment.centerLeft,
+        padding: EdgeInsets.only(
+          bottom: defaultMargin,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              margin: EdgeInsets.only(
+                left: defaultMargin,
+                bottom: 15,
+              ),
+              child: title != ""
+                  ? Text(
+                      title,
+                      style: whiteTextStyle.copyWith(
+                        fontSize: 24,
+                        fontWeight: semibold,
+                      ),
+                    )
+                  : const SizedBox(),
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  CardItem(
+                    title: "One Piece",
+                    imgUrl: 'assets/img_scroll3.png',
+                    widthSize: 100,
+                    isCircle: true,
+                    crossAxisCenter: true,
+                    margin: EdgeInsets.only(left: 20),
+                    onPressed: () {},
+                  ),
+                  CardItem(
+                    title: "One Piece",
+                    imgUrl: 'assets/img_scroll3.png',
+                    widthSize: 100,
+                    isCircle: true,
+                    crossAxisCenter: true,
+                    margin: EdgeInsets.only(left: 10),
+                    onPressed: () {},
+                  ),
+                  CardItem(
+                    title: "One Piece",
+                    imgUrl: 'assets/img_scroll3.png',
+                    widthSize: 100,
+                    isCircle: true,
+                    crossAxisCenter: true,
+                    margin: EdgeInsets.only(left: 10),
+                    onPressed: () {},
+                  ),
+                  CardItem(
+                    title: "One Piece",
+                    imgUrl: 'assets/img_scroll3.png',
+                    widthSize: 100,
+                    isCircle: true,
+                    crossAxisCenter: true,
+                    margin: EdgeInsets.only(left: 10),
+                    onPressed: () {},
+                  ),
+                  CardItem(
+                    title: "One Piece",
+                    imgUrl: 'assets/img_scroll3.png',
+                    widthSize: 100,
+                    isCircle: true,
+                    crossAxisCenter: true,
+                    margin: EdgeInsets.only(left: 10, right: 20),
+                    onPressed: () {},
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
     return Scaffold(
       backgroundColor: kBaseColor,
       body: ListView(
@@ -101,10 +447,11 @@ class _HomePageState extends State<HomePage> {
               IndicatorItem(movieList: movieList, indexActive: currentIndex),
             ],
           ),
-          const CardGridItem(
-            title: 'New updated',
-          ),
-          CardMovieItem(title: 'Trending')
+          cardMovieItem('Recomended', 160, true, "", () {}),
+          cardMovieItem('Comning soon', 210.0, false, "Set", () {}),
+          cardGridItem('New updated'),
+          cardWatchItem("Continue watching", false, () {}),
+          cardCaricularItem("Popular celebrities"),
         ],
       ),
     );
