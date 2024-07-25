@@ -173,6 +173,11 @@ class DetailPage extends StatelessWidget {
                   title: '9.2',
                   bgBadge: Colors.transparent,
                   showIcon: true,
+                  iconBadge: Icon(
+                    Icons.star_rounded,
+                    color: Colors.yellow,
+                    size: 20,
+                  ),
                 ),
                 Text(
                   ' | ',
@@ -265,34 +270,32 @@ class DetailPage extends StatelessWidget {
     }
 
     Widget movieSeason() {
-      return Container(
+      return SizedBox(
         width: double.infinity,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(10),
-                    margin: EdgeInsets.only(right: 10, left: defaultMargin),
-                    decoration: BoxDecoration(
-                      color: kThirdColor,
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    child: Text(
-                      'Season 1',
-                      style: whiteTextStyle.copyWith(
-                        fontSize: 14,
-                        fontWeight: medium,
-                      ),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+              GestureDetector(
+                onTap: () {},
+                child: Container(
+                  padding: const EdgeInsets.all(10),
+                  margin: EdgeInsets.only(right: 10, left: defaultMargin),
+                  decoration: BoxDecoration(
+                    color: kThirdColor,
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: Text(
+                    'Season 1',
+                    style: whiteTextStyle.copyWith(
+                      fontSize: 14,
+                      fontWeight: medium,
                     ),
                   ),
-                ],
+                ),
               ),
-            )
-          ],
+            ],
+          ),
         ),
       );
     }
@@ -333,24 +336,27 @@ class DetailPage extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  Container(
-                    height: 40,
-                    width: 40,
-                    alignment: Alignment.center,
-                    padding: const EdgeInsets.all(10),
-                    margin: EdgeInsets.only(
-                      right: 10,
-                      left: defaultMargin,
-                    ),
-                    decoration: BoxDecoration(
-                      color: kThirdColor,
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    child: Text(
-                      '1',
-                      style: whiteTextStyle.copyWith(
-                        fontSize: 14,
-                        fontWeight: medium,
+                  GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      height: 40,
+                      width: 40,
+                      alignment: Alignment.center,
+                      padding: const EdgeInsets.all(10),
+                      margin: EdgeInsets.only(
+                        right: 10,
+                        left: defaultMargin,
+                      ),
+                      decoration: BoxDecoration(
+                        color: kThirdColor,
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: Text(
+                        '1',
+                        style: whiteTextStyle.copyWith(
+                          fontSize: 14,
+                          fontWeight: medium,
+                        ),
                       ),
                     ),
                   ),

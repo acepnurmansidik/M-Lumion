@@ -7,6 +7,7 @@ class BadgeItem extends StatelessWidget {
   final Color bgBadge;
   final EdgeInsets marginSize;
   final EdgeInsets paddingSize;
+  final Icon iconBadge;
 
   const BadgeItem({
     super.key,
@@ -14,6 +15,11 @@ class BadgeItem extends StatelessWidget {
     this.bgBadge = Colors.transparent,
     this.marginSize = const EdgeInsets.symmetric(vertical: 10),
     this.paddingSize = EdgeInsets.zero,
+    this.iconBadge = const Icon(
+      Icons.star_rounded,
+      size: 20,
+      color: Colors.yellow,
+    ),
     this.showIcon = false,
   });
 
@@ -29,13 +35,7 @@ class BadgeItem extends StatelessWidget {
       ),
       child: Row(
         children: [
-          showIcon
-              ? Icon(
-                  Icons.star_rounded,
-                  color: kYellowColor,
-                  size: 20,
-                )
-              : const SizedBox(),
+          showIcon ? iconBadge : const SizedBox(),
           Container(
             child: Text(
               '$title',

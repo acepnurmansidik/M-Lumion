@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lumion/theme.dart';
+import 'package:lumion/widgets/badge_item.dart';
 
 class CarouselItem extends StatelessWidget {
   final String imgUrlFront;
@@ -67,38 +68,23 @@ class CarouselItem extends StatelessWidget {
             ),
             Row(
               children: [
-                Icon(
-                  Icons.star,
-                  color: kYellowColor,
-                  size: 20,
-                ),
-                const SizedBox(
-                  width: 2,
+                const BadgeItem(
+                  title: '9.2',
+                  showIcon: true,
+                  marginSize: EdgeInsets.zero,
                 ),
                 Text.rich(
                   TextSpan(
-                    text: '$rating/10',
+                    text: '  |  ',
                     style: TextStyle(color: kWhiteColor, fontSize: 14),
-                    children: [
-                      TextSpan(
-                        text: '  |  ',
-                        style: TextStyle(color: kWhiteColor, fontSize: 14),
-                      )
-                    ],
                   ),
                 ),
-                Container(
-                  alignment: Alignment.center,
-                  width: 90,
-                  decoration: BoxDecoration(
-                    color: kGreenColor,
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  child: Text(
-                    status,
-                    style: TextStyle(color: kWhiteColor, fontSize: 14),
-                  ),
-                )
+                BadgeItem(
+                  title: 'Completed',
+                  marginSize: EdgeInsets.zero,
+                  paddingSize: const EdgeInsets.symmetric(horizontal: 10),
+                  bgBadge: kGreenColor,
+                ),
               ],
             ),
             const SizedBox(
