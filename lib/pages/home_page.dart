@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:lumion/pages/detail_page.dart';
 import 'package:lumion/theme.dart';
 import 'package:lumion/widgets/card_banner_item.dart';
 import 'package:lumion/widgets/card_item.dart';
@@ -353,7 +354,12 @@ class _HomePageState extends State<HomePage> {
                     margin: const EdgeInsets.only(left: 20),
                     btnCardTitle: btnTitle,
                     onPressed: () {},
-                    onTapDirect: () {},
+                    onTapDirect: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => DetailPage()));
+                    },
                     heightSize: height,
                   ),
                   CardItem(
@@ -362,16 +368,12 @@ class _HomePageState extends State<HomePage> {
                     margin: const EdgeInsets.only(left: 10),
                     btnCardTitle: btnTitle,
                     onPressed: () {},
-                    onTapDirect: () {},
-                    heightSize: height,
-                  ),
-                  CardItem(
-                    title: "Boku No Hero Academia",
-                    imgUrl: 'assets/img_scroll1.png',
-                    margin: const EdgeInsets.only(left: 10),
-                    btnCardTitle: btnTitle,
-                    onPressed: () {},
-                    onTapDirect: () {},
+                    onTapDirect: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => DetailPage()));
+                    },
                     heightSize: height,
                   ),
                   CardItem(
@@ -380,7 +382,12 @@ class _HomePageState extends State<HomePage> {
                     margin: const EdgeInsets.only(left: 10, right: 20),
                     btnCardTitle: btnTitle,
                     onPressed: () {},
-                    onTapDirect: () {},
+                    onTapDirect: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => DetailPage()));
+                    },
                     heightSize: height,
                   ),
                 ],
@@ -650,7 +657,7 @@ class _HomePageState extends State<HomePage> {
                   cardMovieItem('Recomended', 160, true, "", () {}),
                   cardMovieItem('Comning soon', 210.0, false, "Set", () {}),
                   cardBannerItem('Anime popular', true, "", () {}),
-                  cardGridItem('Nxew updated'),
+                  cardGridItem('New updated'),
                   cardWatchItem("Continue watching", false, () {}),
                   cardCaricularItem("Popular celebrities"),
                 ],
