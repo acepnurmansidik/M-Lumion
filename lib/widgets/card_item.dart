@@ -1,18 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:lumion/theme.dart';
 
 class CardItem extends StatelessWidget {
-  final bool isBanner;
-
   final String btnCardTitle;
   final Function() onPressed;
   final Function() onTapDirect;
 
   final String title;
   final String imgUrl;
-  final bool crossAxisCenter;
-  final bool isCircle;
   final bool isPlay;
   final EdgeInsets margin;
   final double widthSize;
@@ -20,14 +15,11 @@ class CardItem extends StatelessWidget {
 
   const CardItem({
     super.key,
-    this.isBanner = false,
     this.btnCardTitle = "",
     required this.onPressed,
     required this.onTapDirect,
     required this.title,
     required this.imgUrl,
-    this.crossAxisCenter = false,
-    this.isCircle = false,
     this.isPlay = false,
     this.widthSize = 110.9,
     this.heightSize = 160,
@@ -41,9 +33,7 @@ class CardItem extends StatelessWidget {
       height: heightSize,
       margin: margin,
       child: Column(
-        crossAxisAlignment: crossAxisCenter
-            ? CrossAxisAlignment.center
-            : CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           GestureDetector(
             onTap: onTapDirect,
@@ -55,23 +45,15 @@ class CardItem extends StatelessWidget {
                     vertical: (heightSize / 2) - (2 * 22),
                     horizontal: (widthSize / 2) - (2 * 10),
                   ),
-                  height: isCircle ? widthSize : 110,
+                  height: 110,
                   margin: const EdgeInsets.only(bottom: 7),
-                  decoration: isCircle
-                      ? BoxDecoration(
-                          shape: BoxShape.circle,
-                          image: DecorationImage(
-                            fit: BoxFit.cover,
-                            image: AssetImage(imgUrl),
-                          ),
-                        )
-                      : BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          image: DecorationImage(
-                            fit: BoxFit.cover,
-                            image: AssetImage(imgUrl),
-                          ),
-                        ),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage(imgUrl),
+                    ),
+                  ),
                   child: isPlay
                       ? Container(
                           decoration: BoxDecoration(

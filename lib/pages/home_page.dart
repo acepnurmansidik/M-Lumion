@@ -7,6 +7,7 @@ import 'package:lumion/theme.dart';
 import 'package:lumion/widgets/card_banner_item.dart';
 import 'package:lumion/widgets/card_item.dart';
 import 'package:lumion/widgets/carousel_item.dart';
+import 'package:lumion/widgets/circle_card_item.dart';
 import 'package:lumion/widgets/indicator_item.dart';
 
 class HomePage extends StatefulWidget {
@@ -596,34 +597,32 @@ class _HomePageState extends State<HomePage> {
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  CardItem(
+                  CircleCardItem(
                     title: "One Piece",
                     imgUrl: 'assets/img_scroll3.png',
                     widthSize: 100,
-                    isCircle: true,
                     crossAxisCenter: true,
-                    margin: EdgeInsets.only(left: 20),
+                    margin: const EdgeInsets.only(left: 20),
                     onPressed: () {},
                     onTapDirect: () {},
                   ),
-                  CardItem(
+                  CircleCardItem(
                     title: "One Piece",
                     imgUrl: 'assets/img_scroll3.png',
                     widthSize: 100,
-                    isCircle: true,
                     crossAxisCenter: true,
-                    margin: EdgeInsets.only(left: 10),
+                    margin: const EdgeInsets.only(left: 10),
                     onPressed: () {},
                     onTapDirect: () {},
                   ),
-                  CardItem(
+                  CircleCardItem(
                     title: "One Piece",
                     imgUrl: 'assets/img_scroll3.png',
                     widthSize: 100,
-                    isCircle: true,
                     crossAxisCenter: true,
-                    margin: EdgeInsets.only(left: 10, right: 20),
+                    margin: const EdgeInsets.only(left: 10, right: 20),
                     onPressed: () {},
                     onTapDirect: () {},
                   ),
@@ -654,12 +653,12 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 children: <Widget>[
                   carouselItem(),
+                  cardCaricularItem("Popular celebrities"),
                   cardMovieItem('Recomended', 160, true, "", () {}),
                   cardMovieItem('Comning soon', 210.0, false, "Set", () {}),
                   cardBannerItem('Anime popular', true, "", () {}),
                   cardGridItem('New updated'),
                   cardWatchItem("Continue watching", false, () {}),
-                  cardCaricularItem("Popular celebrities"),
                 ],
               ),
             ),
